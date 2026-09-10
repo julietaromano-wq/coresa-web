@@ -673,7 +673,7 @@ textarea { resize: vertical; min-height: 96px; line-height: 1.55; }
   .page-masthead { margin-bottom: 1.25rem; }
   .page-masthead h1 { font-size: 24px; letter-spacing: -0.5px; }
   .form-intro { font-size: 18px; }
-  .page-masthead svg, .masthead-logo { width: min(170px, 62vw); margin-bottom: 0.8rem; }
+  .page-masthead svg, .masthead-logo { width: min(128px, 46vw); margin-bottom: 0.7rem; }
   .page-card { padding: 1.35rem 0.95rem 1.15rem; border-radius: 18px; }
   .card_form { padding: 1.05rem 0.95rem; }
   .field-grid.g2 { grid-template-columns: 1fr; }
