@@ -365,7 +365,7 @@ function espacioHTML(n) {
                   <span>¿Qué significa cada acción?</span>
                 </button>
               </div>
-              <select id="pin-tipo-${n}" onchange="onTipoAccionChange(${n})" style="font-size:13px;padding:7px 8px;min-height:36px;padding-right:28px">
+              <select id="pin-tipo-${n}" onchange="onTipoAccionChange(${n})">
                 <option value="" disabled selected>Seleccioná...</option>
                 ${DATOS.tiposAccion.map(t => `<option>${t}</option>`).join('')}
               </select>
@@ -835,7 +835,11 @@ function onCanvasClick(e, n) {
   resetPinPopupFields(n);
   const badge = document.getElementById('pin-popup-num-' + n);
   if (badge) badge.textContent = s.pins.length + 1;
-  document.getElementById('pin-tipo-' + n).focus();
+
+  // No auto-focus: en mobile, enfocar un <select> abre el picker nativo
+  // y tapa el resto del modal. Además el tap no debe caer en el select.
+  popup.style.pointerEvents = 'none';
+  setTimeout(function() { popup.style.pointerEvents = ''; }, 400);
 
   s.pendingPin = { xPct, yPct };
 
